@@ -1,0 +1,39 @@
+# THE AI AGENT HANDBOOK FOR PRODUCT MANAGERS
+
+## 1. CORE CONCEPTS
+### What is an LLM (Large Language Model)?
+The "Brain". It predicts the next word. Examples: GPT-4, Gemini 1.5, Claude 3.5. 
+Limitation: It has no memory of past conversations and cannot access your private data.
+
+### What is an Agent?
+An Agent is an LLM wrapped in a "Loop". Instead of just answering, it can:
+1. Think ("What should I do?").
+2. Act (Use a tool like Google Search).
+3. Observe (Read the search result).
+4. Answer.
+It has "Agency" aka the ability to take action.
+
+### What is RAG (Retrieval Augmented Generation)?
+RAG is like giving the AI an "Open Book Exam". 
+Instead of memorizing facts, the AI looks them up in a specific library (Vector Database) before answering.
+Flow: User Question -> Search Database -> Get relevant chunks -> Send to AI -> AI Answer.
+
+## 2. THE TECH STACK
+### 1. The Orchestrator (The Manager)
+Tools: Agno (Phidata), LangChain, LlamaIndex.
+Role: Manages the chat history, prompts, and connects the brain to the tools.
+
+### 2. The Vector Database (The Long-Term Memory)
+Tools: LanceDB, Pinecone, Qdrant, PGVector.
+Role: Stores text as "Numbers" (Embeddings). allows the AI to search for "Concepts" not just "Keywords".
+Example: Searching for "Pet" will find "Cat" because they are mathematically close.
+
+### 3. The Embeddings Model
+Tools: OpenAI text-embedding-3, Gemini Embeddings.
+Role: The translator that converts English text into lists of numbers (Vectors).
+
+## 3. WHY DO WE NEED THESE?
+- Why not just use ChatGPT? 
+  Because ChatGPT doesn't know your private company data. RAG solves this.
+- Why not just use keywords?
+  Because "Bank" (River) and "Bank" (Money) look the same to a keyword search, but different to a Vector Search.
